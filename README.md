@@ -74,7 +74,7 @@
 
 라인에서 오신 분이 API 자동화에 대해 강의하신 내용은 다시보기로 한번 더 봐야겠다.
 
-**Momentom 클론코딩 시작**
+**Momentum 클론코딩 시작**
 
 <hr>
 
@@ -83,3 +83,33 @@
 **<a href="./Book/CodeComplete/Chapter21.md">코드 컴플리트 21장 협력 구현</a>**
 
 정밀 검토 또는 짝 프로그래밍을 할 경우 소프트웨어의 품질을 향상시킬 수 있고, 시니어 개발자의 경험과 스킬을 주니어 개발자에게 전달해 줄 수 있다. 이를 통해 팀 전체의 생산성 향상도 기대할 수 있다.
+
+**Momentum Time 컴포넌트 수정**
+
+<hr>
+
+## 2021.03.08
+
+**Momentum Component 구조**
+
+<img src="./images/momentum컴포넌트구조.JPG" alt="Momentum component 구조"/>
+
+컴포넌트 이름
+
+- 빨강: Mementum
+- 주황: Weather
+- 보라: Time
+- 노랑: SearchBar
+- 연두: Lists
+- 초록: TodoList
+- 남색: Todo
+- 하늘: DoneList
+- 파랑: Done
+
+이렇게 컴포넌트가 구성되어 있다(보라가 중간에 껴있는 것은 이해 바람).
+
+**Momentum SearchBox input 값 상위 컴포넌트로 올리기**
+
+SearchBox 컴포넌트 내의 input 값을 Momentum 컴포넌트에서 관리할 수 있도록 SearchBox와 Momentum 컴포넌트 모두 class형 컴포넌트로 수정.
+Momentum 컴포넌트에서 SearchBox의 input 값을 받는 inputValue state를 생성하였고, input의 값을 전달하기 위해 SearchBox에서도 value state를 생성.
+SearchBox 컴포넌트에서 폼을 생성해 Submit을 할 수 있도록 하였고, submit 할 경우 input의 값을 빈 값으로 초기화.
