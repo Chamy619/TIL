@@ -114,7 +114,7 @@ SearchBox 컴포넌트 내의 input 값을 Momentum 컴포넌트에서 관리할
 Momentum 컴포넌트에서 SearchBox의 input 값을 받는 inputValue state를 생성하였고, input의 값을 전달하기 위해 SearchBox에서도 value state를 생성.
 SearchBox 컴포넌트에서 폼을 생성해 Submit을 할 수 있도록 하였고, submit 할 경우 input의 값을 빈 값으로 초기화.
 
-<
+<hr>
 
 ## 2021.03.09
 
@@ -125,7 +125,19 @@ Number 객체의 toFixed 메서드는 지정한 값 만큼의 소수점만 보�
 
 ```javascript
 const str = Number(10.565).toFixed(2);
-console.log(str);   // 10.56
+console.log(str); // 10.56
 ```
 
 toFixed 메서드를 사용해 소수점 둘째 자리 까지만 보이도록 설정한 값을 출력하면 10.565가 10.56으로 출력되고, str의 타입은 string이다.
+
+**JS Form submit 이벤트 발생 시 자식 노드에 접근하기**
+
+form submit 이벤트만으로 자식 노드인 input의 값에 접근하기 위해서는 이벤트 핸들러에서 `event.target.childNodes[0].value`로 접근하면 된다.
+
+자식의 수에 따라 childNodes의 번호는 바뀔 수 있고, event.target은 form 그 자체를 가리킨다.
+
+**Momentum TodoList 생성**
+
+사용자로부터 받은 입력으로 하나씩 추가해가는 배열을 state로 설정하고, 이 값을 TodoList 컴포넌트에 전달
+
+<hr>
