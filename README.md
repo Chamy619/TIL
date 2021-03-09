@@ -113,3 +113,19 @@
 SearchBox 컴포넌트 내의 input 값을 Momentum 컴포넌트에서 관리할 수 있도록 SearchBox와 Momentum 컴포넌트 모두 class형 컴포넌트로 수정.
 Momentum 컴포넌트에서 SearchBox의 input 값을 받는 inputValue state를 생성하였고, input의 값을 전달하기 위해 SearchBox에서도 value state를 생성.
 SearchBox 컴포넌트에서 폼을 생성해 Submit을 할 수 있도록 하였고, submit 할 경우 input의 값을 빈 값으로 초기화.
+
+<
+
+## 2021.03.09
+
+**JS Number.toFixed()**
+Number 객체의 toFixed 메서드는 지정한 값 만큼의 소수점만 보여줌.
+
+사용법
+
+```javascript
+const str = Number(10.565).toFixed(2);
+console.log(str);   // 10.56
+```
+
+toFixed 메서드를 사용해 소수점 둘째 자리 까지만 보이도록 설정한 값을 출력하면 10.565가 10.56으로 출력되고, str의 타입은 string이다.
