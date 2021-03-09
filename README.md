@@ -119,6 +119,7 @@ SearchBox 컴포넌트에서 폼을 생성해 Submit을 할 수 있도록 하였
 ## 2021.03.09
 
 **JS Number.toFixed()**
+
 Number 객체의 toFixed 메서드는 지정한 값 만큼의 소수점만 보여줌.
 
 사용법
