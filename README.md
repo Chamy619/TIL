@@ -142,3 +142,21 @@ form submit 이벤트만으로 자식 노드인 input의 값에 접근하기 위
 사용자로부터 받은 입력으로 하나씩 추가해가는 배열을 state로 설정하고, 이 값을 TodoList 컴포넌트에 전달
 
 <hr>
+
+## 2021.03.10
+
+**CSS display inline-block과 float left**
+
+두 개의 높이가 다른 div를 `display: inline-block`으로 설정할 경우
+
+<img src="./images/inline.JPG" alt="display: inline-block;" />
+
+`float: left`로 설정할 경우
+
+<img src="./images/float.JPG" alt="float: left;" />
+
+두 사진을 비교해보면 inline-block의 경우 아래가 서로 맞춰지고, float left의 경우 위가 서로 맞춰지는 것을 볼 수 있다. 위를 맞출지, 아래를 맞출지를 기준으로 두 가지를 나눠 사용하면 될 것 같다.
+
+**Momentum TodoList, DoneList 컴포넌트 상하 -> 좌우로 보이도록 css 설정**
+
+<hr>
