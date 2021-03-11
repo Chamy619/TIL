@@ -160,3 +160,109 @@ form submit 이벤트만으로 자식 노드인 input의 값에 접근하기 위
 **Momentum TodoList, DoneList 컴포넌트 상하 -> 좌우로 보이도록 css 설정**
 
 <hr>
+
+### 2021.03.11
+
+**window.print()로 페이지 인쇄시 차트 테이블 잘리는 문제 해결 방안**
+
+css 속성에 `break-inside`를 추가해주면 되는데 나는 아래와 같이 해결했다.
+
+```css
+.pageBreak {
+  break-inside: avoid;
+  break-after: auto;
+}
+```
+
+위의 속성을 주면 페이지 하단에서 내용이 잘리는 경우 자동으로 아래 페이지에서 출력하도록 지원해준다.
+
+**CSS: break-inside**
+
+인쇄시 페이지가 잘리는 break point는 이전 element의 `break-after`, 다음 element의 `break-before`, 현재 속한 container의 `break-inside`의 값에 영향을 받는다.
+
+break의 우선 순위는 먼저 등장한 것 우선이다. 한 element 내에서는 `break-before` > `break-inside` > `break-after` 순으로 우선 순위가 적용된다.
+
+break-inside가 가질 수 있는 properties
+
+- `auto`
+  - default 값으로, break를 허용할 수도 있고, 허용하지 않을 수도 있음.
+- `avoid`
+  - 어느 종류의 break든 이를 최대한 피함
+- `avoid-page`
+  - page break를 최대한 피함
+- avoid-column
+  - column break를 최대한 피함
+- avoid-region
+  - region break를 최대한 피함
+
+또한 `break-inside`는 이전 `page-break-inside`와의 호환성을 보장
+
+**git rebase**
+
+Git에서 branch를 병합하는 방법은 merge와 rebase가 있는데 merge의 경우 안전하고, 쉽다. 그냥 `git merge hotfix`처럼 입력하면 충돌이 생기면 충돌이 생겼다고 알려주고, 충돌이 없을 경우 완전히 merge 된다. 하지만 한 branch에서 여러 개의 커밋을 한 개로 묶고 싶을 경우 merge로는 이를 할 수 없다(내가 알기로는).
+
+여기서 도움이 되는 것이 `git rebase`다. rebase를 하면 합치고 싶은만큼 커밋을 합쳐서 하나로 만들고, 이를 병합하려는 branch의 head에 가져다 놓을 수 있다.
+
+```bash
+$ git checkout hotfix
+$ git rebase -i @~5     // 최근 5개의 커밋을 합침
+```
+
+위를 실행하면 아래와 같은 창을 볼 수 있을 것이다.
+
+```bash
+pick a03c578 initial commit
+pick d587ff3 헤더 수정
+pick f3f5f1f hotfix 수정
+pick c30397a 테스트
+pick e795cd1 완료
+
+# Rebase a03c578..e795cd1 onto a03c578
+#
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like "squash", but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented out
+```
+
+위는 vi로 열리는데 가장 위의 initial commit의 pick은 고정이고, 아래부터 pick을 하단의 커맨드 중 원하는 것으로 바꿔주면 되는데, 커밋을 하나로 합치고 싶은 경우라면 s로 바꿔주면 된다.
+
+이후 `:wq`로 나가면 또 한번 vi가 열린다.
+
+```bash
+# This is a combination of 5 commits.
+# The first commit's message is:
+initial commit
+
+# This is the 2nd commit message:
+
+헤더 수정
+
+# This is the 3rd commit message:
+
+hotfix 수정
+
+# This is the 4th commit message:
+
+테스트
+
+# this is the 5th commit message:
+
+완료
+
+```
+
+여기서는 이제 자기가 원하는 커밋 메시지를 작성하면 되는데 `dd` 명령을 사용하면 한 줄을 삭제할 수 있다.
+
+이제 이후 master branch로 checkout 한 다음, merge를 진행하면 5개의 커밋 메시지가 삽입되는 대신, 한 개의 커밋 메시지가 삽입된다.
