@@ -266,3 +266,55 @@ hotfix 수정
 여기서는 이제 자기가 원하는 커밋 메시지를 작성하면 되는데 `dd` 명령을 사용하면 한 줄을 삭제할 수 있다.
 
 이제 이후 master branch로 checkout 한 다음, merge를 진행하면 5개의 커밋 메시지가 삽입되는 대신, 한 개의 커밋 메시지가 삽입된다.
+
+<hr>
+
+## 2021.03.12
+
+### Docker 현재 컨테이너 상태 원격에 푸시하기
+
+**Docker 컨테이너 커밋하기**
+
+`docker commit {CONTAINER} {IMAGE}` 명령을 사용해 컨테이너의 상태를 이미지로 커밋할 수 있다.
+
+```bash
+$ docker commit myContainer centos7
+```
+
+**Docker 이미지 푸시하기**
+
+현재 이미지를 원격 저장소에 올리기 위해서는 푸시를 해야한다.
+
+1. `docker login`으로 일단 도커에 로그인 한다.
+2. `docker tag {IMAGE} {TAG}`로 이미지에 태그를 단다.
+3. `docker push {TAG}`로 푸시를 한다.
+
+```bash
+$ docker login
+$ docker tag centos7 chamy/centos7
+$ docker push chamy/centos7
+```
+
+현재 컨테이너의 상태를 원격 저장소에 푸시하기 위해서는 크게 3개의 단계를 거친다.
+
+1. 컨테이너의 상태를 이미지로 커밋
+2. 이미지에 태그 달기
+3. 태그단 이미지를 푸시
+
+**JS Array.filter 메서드**
+
+JS에서 Array.filter 메서드를 사용하면 배열에서 원하는 조건만 출력할 수 있음
+
+```javascript
+const array = [0, 1, 2, 3, 4, 5];
+
+const even = array.filter(value = > value % 2 === 0);
+
+console.log(even);
+```
+
+위처럼 사용하면 array의 요소 중 2로 나눴을 때 나머지가 0인 값들만 걸러지고, 걸러진 배열을 출력하므로 [0, 2, 4]가 출력된다.
+
+정리하면, filter를 사용하면 콜백 함수가 호출되고, 콜백함수로 전달되는 값은 배열의 각 원소들이다. 그리고 콜백 함수가 리턴하는 값을 배열 형태로 반환한다.
+
+**Momenum Todo 클릭시 삭제 기능 추가**
