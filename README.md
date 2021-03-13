@@ -318,3 +318,34 @@ console.log(even);
 정리하면, filter를 사용하면 콜백 함수가 호출되고, 콜백함수로 전달되는 값은 배열의 각 원소들이다. 그리고 콜백 함수가 리턴하는 값을 배열 형태로 반환한다.
 
 **Momenum Todo 클릭시 삭제 기능 추가**
+
+<hr>
+
+## 2021.03.13
+
+**<a href="./Book/CodeComplete/Chpater22.md">코드 컴플리트 22장 개발자 테스트</a>**
+
+테스트 주도 개발(TDD)의 장점에 대해 알게 되었다. 그동안 TDD에 관심이 그렇게 크지 않았는데 여기에 대해 공부해보고 싶은 마음이 생겼고, 개인적으로 테스트 기록을 남겨 이후에 참고할 수 있도록 해야겠다.
+
+**Mometum TodoList에 존재하는 항목 추가시 이미 존재합니다 메시지 출력 기능 구현**
+
+입력으로 받은 값이 todoList state 배열에 존재하는지 Array.indexOf 메서드를 사용해 판단하고, 존재하지 않을 경우 배열에 추가하고, 존재할 경우 추가하지 않고, 화면에 경고 메시지를 띄우도록 함.
+
+```javascript
+handleSubmit(value) {
+  const todoList = this.state.todoList;
+
+  if (todoList.indexOf(value) === -1) {
+    todoList.push(value);
+    this.setState({
+      inputValue: value,
+      todoList: todoList,
+      alreadyExist: false
+    });
+  } else {
+    this.setState({
+      alreadyExist: true
+    });
+  }
+}
+```
