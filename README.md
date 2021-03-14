@@ -349,3 +349,17 @@ handleSubmit(value) {
   }
 }
 ```
+
+<hr>
+
+## 2021.03.14
+
+**<a href="./Book/CodeComplete/Chapter23.md">코드 컴플리트 23장 디버깅</a>**
+
+그동안 console.log로만 디버깅해왔던 내 자신을 반성하게 된다. 오류가 발생하게 된 원인을 명확히 찾고, 프로그램을 이해한 후 결함을 수정할 수 있는 개발자가 되어야겠다.
+
+**JS Drag and Drop**
+
+드래그를 위해서는 드래그 하려는 태그에 draggable="true" 속성을 주어야 하고, ondragstart와 ondrag 이벤트 핸들러를 작성해야 한다.
+
+드랍을 위해서는 드랍을 하려는 태그에 droppable="true" 속성을 주어야 하고, ondrop과 ondropover 이벤트 핸들러를 작성해야 하는데, 이 부분은 조금 더 공부한 후 정리해서 올려야겠다.
