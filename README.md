@@ -363,3 +363,9 @@ handleSubmit(value) {
 드래그를 위해서는 드래그 하려는 태그에 draggable="true" 속성을 주어야 하고, ondragstart와 ondrag 이벤트 핸들러를 작성해야 한다.
 
 드랍을 위해서는 드랍을 하려는 태그에 droppable="true" 속성을 주어야 하고, ondrop과 ondropover 이벤트 핸들러를 작성해야 하는데, 이 부분은 조금 더 공부한 후 정리해서 올려야겠다.
+
+<hr>
+
+## 2021.03.15
+
+**Momentum Todo 컴포넌트에 드래그 기능 추가**
