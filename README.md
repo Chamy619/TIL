@@ -369,3 +369,41 @@ handleSubmit(value) {
 ## 2021.03.15
 
 **Momentum Todo 컴포넌트에 드래그 기능 추가**
+
+<hr>
+
+## 2021.03.16
+
+**JS window.open**
+
+JS에서 `wondow.open(URL)`을 입력하면 URL 주소의 새 창을 띄운다. 이때 한 번 더 `window.open(URL)`로 이전과 같은 URL을 띄울 때는 새 창이 뜨지 않고, 이전의 창이 다시 나타난다(창이 2개가 아니라 1개라는 뜻).
+
+```javascript
+const url = 'https://tistory.com';
+window.open(url);
+window.open(url);
+```
+
+만약 같은 URL로 여러 개의 새 window를 띄우고 싶다면, 두 번째 파라미터인 name을 설정해주면 된다.
+
+```javascript
+const url = 'https://tistory.com';
+window.open(url, 1);
+window.open(url, 2);
+```
+
+위 처럼 두번째 파라미터에 다른 값을 입력하면 다른 창이 뜨고, 만약 `window.open(url, 1)`을 한번 더 실행할 경우에는 기존에 떠있던 1번 창이 위로 보여지게 된다.
+
+**Momentum Todo 항목 Done List로 이동시키는 기능 추가**
+
+Drag and Drop을 사용해 Todo 항목을 Done List로 이동시키는 기능을 추가했다. TodoList 컴포넌트에 dragStart 이벤트를 추가하고, DoneList 컴포넌트에 onDrop 이벤트를 추가하고, onDragOver를 동작 중지시켜 구현했다.
+
+Todo 컴포넌트 요소들은 각각 자기의 이름을 id로 가지고 있고, 이는 어떤 항목을 드래그했는지 알게하기 위함이다.
+
+드래그를 시작할 때 dragStart 이벤트가 발생하고, 여기에 `event.dataTransfer.setData('targetId')`를 설정해, 드래그 이벤트가 진행되는 동안 어떤 id를 드래그 중인지 설정해 놓는다. 이후 onDrop 이벤트가 발생하게 되면 해당 이벤트 핸들러에서는 `event.dataTransfer.getData('targetId')`를 통해 드래그 된 항목의 id를 가져온 후 이를 처리한다.
+
+Done List에 항목을 이동시켰으면 Todo List에서는 빼야한다. 이를 처리하기 위해 removeTodo 메서드를 DoneList 컴포넌트에도 전달해 onDrop 이벤트 핸들러에서 이를 처리하도록 했다.
+
+**React 클래스형 컴포넌트 내의 메서드에서 this를 사용한다면 생성자에 꼭 this 바인딩을 해주자**
+
+클래스형 컴포넌트 내의 메서드에서 props나 state를 사용할 때는 this를 사용하는데, 이때 생성자에서 this를 바인딩 해주지 않으면 에러가 발생한다.
