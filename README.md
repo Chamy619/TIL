@@ -407,3 +407,24 @@ Done List에 항목을 이동시켰으면 Todo List에서는 빼야한다. 이�
 **React 클래스형 컴포넌트 내의 메서드에서 this를 사용한다면 생성자에 꼭 this 바인딩을 해주자**
 
 클래스형 컴포넌트 내의 메서드에서 props나 state를 사용할 때는 this를 사용하는데, 이때 생성자에서 this를 바인딩 해주지 않으면 에러가 발생한다.
+
+<hr>
+
+## 2021.03.17
+
+**Momentum material UI 추가**
+
+```bash
+// material-ui 설치
+$ npm install @material-ui/core
+
+// material-ui 적용
+$ yarn add @material-ui/core
+
+// 애플리케이션 패키지 재설치
+$ npm install
+```
+
+세 단계를 거쳐 현재 Momentum 앱에 material-ui를 등록했고, 테스트 결과 버튼을 무난히 띄울 수 있었다.
+
+현재 문제는 input 태그에 material-ui를 적용하면 이벤트 핸들러를 어떻게 작성해야 하는가다. 이번 주 남은 기간은 material-ui를 배우고 삽질하는데 많은 시간이 쓰일 것 같다.
