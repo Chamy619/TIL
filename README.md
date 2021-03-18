@@ -379,7 +379,7 @@ handleSubmit(value) {
 JS에서 `wondow.open(URL)`을 입력하면 URL 주소의 새 창을 띄운다. 이때 한 번 더 `window.open(URL)`로 이전과 같은 URL을 띄울 때는 새 창이 뜨지 않고, 이전의 창이 다시 나타난다(창이 2개가 아니라 1개라는 뜻).
 
 ```javascript
-const url = 'https://tistory.com';
+const url = "https://tistory.com";
 window.open(url);
 window.open(url);
 ```
@@ -387,7 +387,7 @@ window.open(url);
 만약 같은 URL로 여러 개의 새 window를 띄우고 싶다면, 두 번째 파라미터인 name을 설정해주면 된다.
 
 ```javascript
-const url = 'https://tistory.com';
+const url = "https://tistory.com";
 window.open(url, 1);
 window.open(url, 2);
 ```
@@ -428,3 +428,17 @@ $ npm install
 세 단계를 거쳐 현재 Momentum 앱에 material-ui를 등록했고, 테스트 결과 버튼을 무난히 띄울 수 있었다.
 
 현재 문제는 input 태그에 material-ui를 적용하면 이벤트 핸들러를 어떻게 작성해야 하는가다. 이번 주 남은 기간은 material-ui를 배우고 삽질하는데 많은 시간이 쓰일 것 같다.
+
+<hr>
+
+## 2021.03.18
+
+**CSS에서 클릭 이벤트 제거**
+
+만약 클릭 이벤트를 CSS에서 제거하고 싶을 때는 `point-events: none`을 주면 된다.
+
+**<a href="/react/Experience/state_undefined.md">React state를 생성할 때 undefined일 경우</a>**
+
+상의 컴포넌트로부터 props로 받은 값이 undefined 값이고, 이를 state로 선언할 경우 해당 state는 생성되지 않는다.
+
+**Momentum material UI에 이벤트 핸들러 등록**
