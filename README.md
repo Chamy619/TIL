@@ -448,3 +448,11 @@ $ npm install
 ## 2021.03.19
 
 **Momentum TodoList, DoneList CSS 적용**
+
+<hr>
+
+## 2021.03.20
+
+**Momentum 배경 사진 API 적용**
+
+**웹 페이지에 px을 사용하지 말자**
