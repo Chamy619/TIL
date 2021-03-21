@@ -456,3 +456,18 @@ $ npm install
 **Momentum 배경 사진 API 적용**
 
 **웹 페이지에 px을 사용하지 말자**
+
+<hr>
+
+## 2021.03.21
+
+**JS 위도 경도 가져오기**
+
+```javascript
+navigator.geolocation((position) => {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+});
+```
+
+navigator의 geolocation 메서드를 사용하면 위도와 경도 정보를 가져올 수 있음
