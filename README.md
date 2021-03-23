@@ -479,3 +479,36 @@ navigator의 geolocation 메서드를 사용하면 위도와 경도 정보를 �
 **JS 위도 경도로 카카오 API 사용해 현재 위치 표시하기 - 실패**
 
 unauthrized 메시지를 리턴 받는데, 키를 제 위치에 넣지 못한 것 같다. 내일 다시 시도해보고, 사용법을 정리해서 올려야겠다(생각보다 친절히 설명된 것을 찾기 힘듬).
+
+<hr>
+
+## 2021.03.23
+
+**크롬 모달 scrollIntoView 이슈**
+
+오늘 테이블을 클릭하면 해당 차트로 스크롤이 이동하는 동작을 만드는 작업을 하던 중 scrollIntoView 사용시 body와 모달이 동시에 스크롤되는 현상이 발생했다. 모달만 스크롤되고 body만 스크롤 하기 위해서 body에서 스크롤 이벤트가 발생하면, `scrollTop(0)`을 사용해 스크롤 이벤트를 막고 모달만 스크롤 되도록 설정했다.
+
+여기서 크롬에서는 동작하지 않고, 파이어폭스에서는 동작하는 것이
+
+```javascript
+$("#element").scrollIntoView({ behavior: "smooth" });
+```
+
+위의 코드였다. `behavior smooth`속성을 주면 파이어폭스에서는 body는 스크롤되지 않고, 모달만 스크롤되지만, 크롬에서는 body와 모달 모두 스크롤되지 않는다. 그래서 behaivor 속성을 없애고 실행하면 파이어폭스와 크롬 모두 body는 스크롤되지 않고, 모달만 스크롤된다.
+
+이번 이슈를 해결하면서 내린 결론은 크롬에서 scrollIntoView를 실행할 때 smooth 속성을 준다면 부모 -> 자식으로 가면서 동작이 성공해야 다음 동작이 진행되는 것을 알게되었다. 실제로 `$('body').scrollTop(0)`을 주지 않고, smooth 속성의 scrollIntoView 이벤트를 발생시켰을 때, body가 먼저 스크롤 된 후 모달이 스크롤된다.
+
+**CSS body 스크롤 막는 방법과 한계**
+
+CSS 설정으로 body의 스크롤을 막을 수 있다.
+
+```css
+body {
+  height: 100%;
+  overflow: hidden;
+}
+```
+
+위처럼 height를 100%, overflow를 hidden으로 설정하면 body에서 스크롤을 할 수 없다.
+
+하지만 scrollIntoView와 같은 다른 스크롤 이벤트로는 body가 스크롤되는데, 여기서 근본적인 문제는 body 내부에 body보다 더 긴 컴포넌트가 있을 때 스크롤이 된다. body 내부의 모든 컴포넌트가 body보다 작으면 당연히 스크롤될 것이 없기 때문에 scroll 되지 않는데, body 내부가 body보다 길어지면 문제가 발생한다.
