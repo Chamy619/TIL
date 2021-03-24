@@ -512,3 +512,31 @@ body {
 위처럼 height를 100%, overflow를 hidden으로 설정하면 body에서 스크롤을 할 수 없다.
 
 하지만 scrollIntoView와 같은 다른 스크롤 이벤트로는 body가 스크롤되는데, 여기서 근본적인 문제는 body 내부에 body보다 더 긴 컴포넌트가 있을 때 스크롤이 된다. body 내부의 모든 컴포넌트가 body보다 작으면 당연히 스크롤될 것이 없기 때문에 scroll 되지 않는데, body 내부가 body보다 길어지면 문제가 발생한다.
+
+<hr>
+
+## 2021.03.24
+
+**모멘텀 Kakao 로컬 API를 사용해 현재 위치 화면에 뿌리기**
+
+그저께 실패한 이유가 로컬 API를 사용할 때는 REST API 키를 사용해야 하는데, 나는 Javascript 키를 사용해서 인증 에러가 났었다.
+
+fetch를 사용해 카카오 api로 보내는 형태는 아래와 같다.
+
+```javascript
+fetch(`https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?input_coord=WGS84&output_coord=WGS84&y=${latitude}&x=${longitude}`, {
+  headers: {
+    Authorization: `KakaoAK ${REST API Key}`
+  }
+});
+```
+
+위를 보내면 응답을 성공했다는 메시지를 받게 되는데, 이를 `json()`을 거쳐야 원하는 json 데이터를 얻을 수 있다. 방법은 아래와 같다.
+
+```javascript
+fetch("...").then(response.json()).then(console.log);
+```
+
+마지막 then에서 받은 값을 위치 데이터로 사용할 수 있다. 나는 위치 정보를 함수 컴포넌트에서 뿌리려고 했는데, 함수형 컴포넌트 내에서는 값의 변화를 외부 props로 받아야 하기 때문에 초기값인 '위치를 찾을수 없습니다' 에서 fetch를 통해 비동기적으로 통신을 완료했을 때 화면에 렌더링하는 loc 변수에는 현재 주소가 있지만 실제로 화면에 렌더링 되지는 않는 문제가 발생했다.
+
+이 문제를 해결하기 위해서 날씨 컴포넌트를 클래스형 컴포넌트로 바꾸고, loc을 state로 관리하도록 했다. 그리고 `componentDidMount`를 사용해 컴포넌트가 렌더링 될 때, API 통신을 하고, 결과를 loc state에 반영했다.
