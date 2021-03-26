@@ -562,3 +562,7 @@ fetch("...").then(response.json()).then(console.log);
 **크롬에서 window.open resizable**
 
 크롬에서 윈도우 창을 새로 열 때 resizable은 동작하지 않는다. Only IE 라고 되어있는 것으로 보아 인터넷 익스플로어에서만 동작하는 것 같다.
+
+**모멘텀 todo, done 항목에 hover css 추가**
+
+CSS의 hover를 사용해 마우스를 todo와 done 위에 두면 배경 색이 변하고, 커서도 손가락으로 변하는 기능 추가
