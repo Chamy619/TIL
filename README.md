@@ -566,3 +566,31 @@ fetch("...").then(response.json()).then(console.log);
 **모멘텀 todo, done 항목에 hover css 추가**
 
 CSS의 hover를 사용해 마우스를 todo와 done 위에 두면 배경 색이 변하고, 커서도 손가락으로 변하는 기능 추가
+
+<hr>
+
+## 2021.03.27
+
+**<a href="./Book/CodeComplete/Chapter24.md">코드 컴플리트 24장 리팩터링</a>**
+
+리팩터링은 유지보수 단계에서만 하는 것이 아니다. 오히려 릴리즈 하기 전이 리팩터링하기 더 좋은 타이밍이다. 지금 내가 잡은 코드보다 더 나은 품질을 갖도록 하는 것이 리팩터링이다. 단순히 코드를 변경하는 것이 리팩터링이 아니다!
+
+**모멘텀 CSS 개선**
+
+일단 TodoList 컴포넌트와 DoneList 컴포넌트에 중복적으로 적용되는 css가 있어서 이 둘의 클래스를 `list todoList`와 `list doneList`로 바꾸고, 중복 적용 사항은 `.list`에서 정의하고, 별도 적용 사항은 `.list.todoList`와 `.list.doneList`에서 적용했다. 또한 Todo 컴포넌트와 Done 컴포넌트 역시 현재 동일한 css를 중복해서 적용하고 있어서 content 클래스로 묶어서 해당 클래스로 css를 적용했다.
+
+모멘텀의 날씨 컴포넌트에 `text-align: right`을 줘서 화면의 오른쪽에 표시하도록 했고, 기존 px 단위 표현을 rem으로 변경했다.
+
+Input materia ui 컴포넌트의 width를 100%로 설정하고, 텍스트를 입력할 때 가운데에서 입력되도록 변경했는데, width를 100%로 설정하는 아래처럼 fullWidth=true를 주면 된다.
+
+```javascript
+<Input fullWidth={true}>
+```
+
+다음으로 text-align을 center로 하는 건데, 이는 inputProps로 style을 넘겨주면 된다.
+
+```javascript
+<Input inputProps={{style: {textAlign: 'center'}}}>
+```
+
+우리가 사용하는 Input 컴포넌트는 div 안에 input 태그가 들어간건데, 위처럼 style을 전달하면 div 내부의 input 태그의 스타일에 적용된다. div에는 전달되지 않으므로, 여기에 width를 아무리 바꿔도 width가 변경되지 않는다(div 내부에 속해있으므로, div의 width를 먼저 바꿔야 함).
