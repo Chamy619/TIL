@@ -612,3 +612,9 @@ Input materia ui 컴포넌트의 width를 100%로 설정하고, 텍스트를 입
 **CSS position absolute와 부모와의 관계**
 
 개체의 위치를 div 태그 내의 가운데에 고정시키기 위해서 `position: absolute`와 `left: 50%`를 사용했는데 내가 원하는 곳이 아니라 전체 화면의 가운데에 위치해서 어떻게 내가 원하는 곳에 위치 시킬 수 있을까에 대해 찾아보다가, absolute가 부모 중 position이 relative, fixed, absolute 중 하나인 경우, 해당 부모 내의 절대 위치가 된다. 그래서 부모 div의 position을 relative로 주고, 해당 div의 자식의 position을 absolute, left를 50% 주면 부모의 가운데에 위치하게 된다.
+
+<hr>
+
+## 2021.03.30
+
+**Momentum 사용자가 시간 표기법을 설정할 수 있는 기능 추가**
