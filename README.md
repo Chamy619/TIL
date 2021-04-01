@@ -633,3 +633,28 @@ Input materia ui 컴포넌트의 width를 100%로 설정하고, 텍스트를 입
 
 **모멘텀 CSS flex 적용 및 시간 표기법 설정 UI 수정**
 
+
+
+<hr>
+
+
+
+## 2021.04.01
+
+**CSS vh**
+
+vh는 view point 기준으로 퍼센트를 준다. 기존에 height 100%로 화면 전부를 채우려면, html, body 부터 시작해서 모든 부모의 높이를 100%로 설정하고 자신의 높이도 100%로 놓아야 화면을 전부 채웠지만, vh를 사용하면 부모의 height을 수정할 필요 없이 자신의 height을 100vh로 설정하면 된다.
+
+```css
+.backgroundDiv {
+    height: 100vh;
+}
+```
+
+
+
+참고로 vh는 viewpoint 기준 height 비율이다.
+
+
+
+**모멘텀 TodoList, DoneList flex로 화면에 표시 및 높이에 vh 적용**
