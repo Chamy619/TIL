@@ -672,3 +672,29 @@ vh는 view point 기준으로 퍼센트를 준다. 기존에 height 100%로 화�
 **<a href="./Book/CodeComplete/Chapter26.md">코드 컴플리트 26장 코드 튜닝 기법</a>**
 
 여러 가지 코드 튜닝 기법을 배울 수 있었다. 하지만 가장 중요한 점은 코드 튜닝을 한 후 반드시 성능 테스트를 해야한다는 점이다. 또한 코드 튜닝으로 얻을 수 있는 성능과 좋은 코드의 가치를 비교한 후 튜닝 내용을 적용할 지 결정해야 한다.
+
+
+
+<hr>
+
+## 2021.04.04
+
+**<a href="./Book/CodeComplete/Chapter27.md">코드 컴플리트 27장 프로그램의 크기가 구현에 미치는 영향</a>**
+
+프로그램의 크기가 커질수록, 프로그램에서 구현활동이 차지하는 비율이 줄어든다. 대신 의사소통이나, 요구 분석, 설계에 드는 노력이 지수적으로 증가한다.
+
+
+
+**JS mouseover-mouseenter, mouseleave-mouseout**
+
+mouseover와 mouseenter의 차이점은 자식에게도 이벤트가 유지되는가이다. 중첩된 div 구조가 있을 때, 부모 div에 mouseover를 걸어놓고 마우스를 자식 div에 가져다대면, 부모 div는 여전히 mouseover 상태이다. 하지만 mouseenter의 경우 부모 div에 마우스가 있을 경우 mouseenter 상태이지만, 자식에게 마우스를 가져가면 mouseenter가 해제된다.
+
+mouseleave와 mouseout도 마찬가지이다. 부모 div에 mouseleave를 걸어놓은 상태로 자식 div로 마우스를 가져갔을 때는 mouseleave 이벤트가 발생하지 않는다. 하지만 mouseout의 이벤트를 걸어놓으면, 자식 div로 마우스를 가져다 댔을 때, mouseout 이벤트가 발생한다.
+
+
+
+**모멘텀 onMouseOver - onMouseLeave 사용해 이벤트 구성 및 리액트 아이콘 사용**
+
+기존에 onMouseOver 이벤트와 onMouseOut 이벤트를 사용해 이벤트를 구성했더니, 오버 이벤트가 제대로 동작하지 않아서 leave 이벤트로 수정함. 
+
+무료로 제공되는 리엑트 아이콘을 사용해 메뉴 표시
