@@ -698,3 +698,36 @@ mouseleave와 mouseout도 마찬가지이다. 부모 div에 mouseleave를 걸어
 기존에 onMouseOver 이벤트와 onMouseOut 이벤트를 사용해 이벤트를 구성했더니, 오버 이벤트가 제대로 동작하지 않아서 leave 이벤트로 수정함. 
 
 무료로 제공되는 리엑트 아이콘을 사용해 메뉴 표시
+
+
+
+<hr>
+
+## 2021.04.05
+
+**모멘텀 material ui 사용해 시간 변환 토글 생성**
+
+material-ui 아이콘 패키지 설치
+
+```bash
+$ npm install --save '@material-ui/icons'
+```
+
+
+
+material-ui 아이콘 적용
+
+```react
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import Switch from '@material-ui/core/Switch';
+
+<Fab size="small" color="secondary" aria-label="add">
+	<AddIcon />
+</Fab>
+<Switch checked="{props.showFullHour}" onChange="{props.changeTimeFormat}" />
+```
+
+
+
+**모멘텀 5분마다 현재 위치 새로 받아오도록 변경**
