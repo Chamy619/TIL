@@ -738,3 +738,19 @@ import Switch from '@material-ui/core/Switch';
 
 **모멘텀 아이콘 정렬 및 시간 크기 수정**
 
+<hr>
+
+## 2021.04.07
+
+**CSS word-break**
+
+table td 태그 내부에 span 태그를 사용해 글을 넣을 때, 글이 길어지면 텍스트가 td를 빠져나가는 현상이 발생한다. 이를 막으려면 td 또는 table에 word-break 속성을 주면 된다.
+
+```css
+td {
+    word-break: break-all;
+}
+```
+
+내가 미리 정해둔 길이가 되면 텍스트를 하단으로 내린다. 기본 값은 단어별로 하단으로 내리는데, 단어 상관하지 않고, 그냥 내려버린다.
+
