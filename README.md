@@ -750,7 +750,7 @@ td {
 
 이번 장은 나보다는 관리자 또는 리더들에게 도움이 될만한 내용들이 주를 이뤘다.
 
-**<a href="./CSS/CSS before와 after.md">CSS before와 after</a>**
+**<a href="./css/CSS before와 after.md">CSS before와 after</a>**
 
 어제 툴팁을 css의 after를 사용해 생성했는데, 정확한 기능을 몰라서 오늘 찾아봤다. 화면을 꾸미는데 유용하게 사용할 것이라 생각되고, 회사 프로젝트에서도 이미 before와 after를 사용하고 있는데 게을러서 그동안 찾아보지 않다가 오늘에서야 찾아봤다...
 
