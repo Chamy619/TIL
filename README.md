@@ -617,9 +617,7 @@ Input materia ui 컴포넌트의 width를 100%로 설정하고, 텍스트를 입
 
 ## 2021.03.30
 
-모멘텀 사용자가 시간 표기법을 설정할 수 있는 기능 추가**
-
-
+모멘텀 사용자가 시간 표기법을 설정할 수 있는 기능 추가\*\*
 
 <hr>
 
@@ -629,15 +627,9 @@ Input materia ui 컴포넌트의 width를 100%로 설정하고, 텍스트를 입
 
 기존 inline-block과 float을 사용하던 부분을 `display: flex`를 사용하면 조금 더 강력하게 화면을 구성할 수 있다는 것을 알게 되었다. 기능이 너무 강력하고 신기해서 나는 3 개의 div를 3등분해서 나눈 후 화면에 보여주고 싶었는데 flex를 사용하면 매우 쉽게 구현할 수 있었다. 조금더 flex와 grid에 대해 공부해보고, 나한테 더 잘 맞는 것을 사용해야겠다.
 
-
-
 **모멘텀 CSS flex 적용 및 시간 표기법 설정 UI 수정**
 
-
-
 <hr>
-
-
 
 ## 2021.04.01
 
@@ -647,15 +639,11 @@ vh는 view point 기준으로 퍼센트를 준다. 기존에 height 100%로 화�
 
 ```css
 .backgroundDiv {
-    height: 100vh;
+  height: 100vh;
 }
 ```
 
-
-
 참고로 vh는 viewpoint 기준 height 비율이다.
-
-
 
 **모멘텀 TodoList, DoneList flex로 화면에 표시 및 높이에 vh 적용**
 
@@ -673,8 +661,6 @@ vh는 view point 기준으로 퍼센트를 준다. 기존에 height 100%로 화�
 
 여러 가지 코드 튜닝 기법을 배울 수 있었다. 하지만 가장 중요한 점은 코드 튜닝을 한 후 반드시 성능 테스트를 해야한다는 점이다. 또한 코드 튜닝으로 얻을 수 있는 성능과 좋은 코드의 가치를 비교한 후 튜닝 내용을 적용할 지 결정해야 한다.
 
-
-
 <hr>
 
 ## 2021.04.04
@@ -683,23 +669,17 @@ vh는 view point 기준으로 퍼센트를 준다. 기존에 height 100%로 화�
 
 프로그램의 크기가 커질수록, 프로그램에서 구현활동이 차지하는 비율이 줄어든다. 대신 의사소통이나, 요구 분석, 설계에 드는 노력이 지수적으로 증가한다.
 
-
-
 **JS mouseover-mouseenter, mouseleave-mouseout**
 
 mouseover와 mouseenter의 차이점은 자식에게도 이벤트가 유지되는가이다. 중첩된 div 구조가 있을 때, 부모 div에 mouseover를 걸어놓고 마우스를 자식 div에 가져다대면, 부모 div는 여전히 mouseover 상태이다. 하지만 mouseenter의 경우 부모 div에 마우스가 있을 경우 mouseenter 상태이지만, 자식에게 마우스를 가져가면 mouseenter가 해제된다.
 
 mouseleave와 mouseout도 마찬가지이다. 부모 div에 mouseleave를 걸어놓은 상태로 자식 div로 마우스를 가져갔을 때는 mouseleave 이벤트가 발생하지 않는다. 하지만 mouseout의 이벤트를 걸어놓으면, 자식 div로 마우스를 가져다 댔을 때, mouseout 이벤트가 발생한다.
 
-
-
 **모멘텀 onMouseOver - onMouseLeave 사용해 이벤트 구성 및 리액트 아이콘 사용**
 
-기존에 onMouseOver 이벤트와 onMouseOut 이벤트를 사용해 이벤트를 구성했더니, 오버 이벤트가 제대로 동작하지 않아서 leave 이벤트로 수정함. 
+기존에 onMouseOver 이벤트와 onMouseOut 이벤트를 사용해 이벤트를 구성했더니, 오버 이벤트가 제대로 동작하지 않아서 leave 이벤트로 수정함.
 
 무료로 제공되는 리엑트 아이콘을 사용해 메뉴 표시
-
-
 
 <hr>
 
@@ -713,8 +693,6 @@ material-ui 아이콘 패키지 설치
 $ npm install --save '@material-ui/icons'
 ```
 
-
-
 material-ui 아이콘 적용
 
 ```react
@@ -727,8 +705,6 @@ import Switch from '@material-ui/core/Switch';
 </Fab>
 <Switch checked="{props.showFullHour}" onChange="{props.changeTimeFormat}" />
 ```
-
-
 
 **모멘텀 5분마다 현재 위치 새로 받아오도록 변경**
 
@@ -748,7 +724,7 @@ table td 태그 내부에 span 태그를 사용해 글을 넣을 때, 글이 길
 
 ```css
 td {
-    word-break: break-all;
+  word-break: break-all;
 }
 ```
 
@@ -770,11 +746,9 @@ td {
 
 ## 2021.04.10
 
-**<a href="./Book/CodeComplete/Chapter28.cd">코드 컴플리트 28장 구현 관리</a>**
+**<a href="./Book/CodeComplete/Chapter28.md">코드 컴플리트 28장 구현 관리</a>**
 
 이번 장은 나보다는 관리자 또는 리더들에게 도움이 될만한 내용들이 주를 이뤘다.
-
-
 
 **<a href="./CSS/CSS before와 after.md">CSS before와 after</a>**
 
