@@ -789,3 +789,9 @@ td {
 **이슈 발생**
 
 `window.navigator.getCurrentLocation`이 크롬과 파이어폭스에서 https가 아니면 지원하지 않는다고 한다. 현재 로컬 react 앱을 https로 변환하는 방법에 대해 연구해야겠다.
+
+<hr>
+
+## 2021.04.13
+
+**모멘텀 https로 연결**
