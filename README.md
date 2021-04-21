@@ -860,3 +860,13 @@ td {
 * 날씨 아이콘 크기 조정
 * 폰트 크기 rem으로 수정
 
+<hr>
+
+## 2021.04.21
+
+**JS event.stopPropagation**
+
+리액트에서 stopPropagation을 사용할 때는, 해당 이벤트가 발생한 곳에서만 사용해야 한다.
+
+나는 부모 컴포넌트에서 메서드를 자식 컴포넌트로 전달해줄 때, 부모 컴포넌트에 `event.stopPropagation()`을 사용했는데 오류가 났다. 이벤트가 발생하는 컴포넌트에서 stopPropagation을 사용하면 정상적으로 동작한다.
+
