@@ -972,3 +972,10 @@ const TodoTemplate = ({form, children}) => {
 ```
 
 form과 children에는 JSX 문법을 사용할 수 있다.
+
+<hr>
+
+## 2021.04.28
+
+**벨로퍼트 투두리스트 템플릿 완성**
+
