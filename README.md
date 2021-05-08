@@ -1062,3 +1062,11 @@ form과 children에는 JSX 문법을 사용할 수 있다.
 <a href="./FriendWiki/Documents/Express시작하기.md">여기</a>를 클릭하면 해당 문서를 볼 수 있다.
 
 생활코딩으로 express를 배웠던 기억이 조금씩 떠오른다.
+
+<hr>
+
+## 2021.05.08
+
+**<a href="./Book/TheProgmaticProgrammer/Chapter3.md">실용주의 프로그래머 3장 기본적인 도구</a>**
+
+VSCode에서 벗어나 이를 사용하지 않고 문서를 다룰 수 있는 사람이 되는 것이 첫 번째, 그리고 VSCode의 마스터가 되는 것이 두 번째.
