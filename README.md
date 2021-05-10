@@ -1017,7 +1017,7 @@ form과 children에는 JSX 문법을 사용할 수 있다.
 
 ## 2021.05.02
 
-**<a href="./Book/TheProgmaticProgrammer.Chapter1.md">실용주의 프로그래머 1장 실용주의 철학</a>**
+**<a href="./Book/ThePragmaticProgrammer.Chapter1.md">실용주의 프로그래머 1장 실용주의 철학</a>**
 
 코드 컴플리트에서 읽었던 내용들이 많이 생각났다. 거의 결을 같이 하는 것 같다. 지적 솔직함을 중요시하자!
 
@@ -1039,7 +1039,7 @@ form과 children에는 JSX 문법을 사용할 수 있다.
 
 ## 2021.05.05
 
-**<a href="./Book/TheProgmaticProgrammer.Chapter2.md">실용주의 프로그래머 2장 실용주의 접근법</a>**
+**<a href="./Book/ThePragmaticProgrammer.Chapter2.md">실용주의 프로그래머 2장 실용주의 접근법</a>**
 
 직교성과 가역성을 기억하자!
 
@@ -1067,7 +1067,7 @@ form과 children에는 JSX 문법을 사용할 수 있다.
 
 ## 2021.05.08
 
-**<a href="./Book/TheProgmaticProgrammer/Chapter3.md">실용주의 프로그래머 3장 기본적인 도구</a>**
+**<a href="./Book/ThePragmaticProgrammer/Chapter3.md">실용주의 프로그래머 3장 기본적인 도구</a>**
 
 VSCode에서 벗어나 이를 사용하지 않고 문서를 다룰 수 있는 사람이 되는 것이 첫 번째, 그리고 VSCode의 마스터가 되는 것이 두 번째.
 
@@ -1075,7 +1075,7 @@ VSCode에서 벗어나 이를 사용하지 않고 문서를 다룰 수 있는 �
 
 ## 2021.05.09
 
-**<a href="./Book/TheProgmaticProgrammer/Chapter4.md">실용주의 프로그래머 4장 실용주의 편집증</a>**
+**<a href="./Book/ThePragmaticProgrammer/Chapter4.md">실용주의 프로그래머 4장 실용주의 편집증</a>**
 
 예외 처리 기법과 자원 할당 해제 원칙에 대해 다뤘다.
 
