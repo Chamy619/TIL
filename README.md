@@ -1108,3 +1108,12 @@ ssh를 사용하는 방법과, 처음 프로젝트를 github에 올리는 것을
 **MongoDB 모델 사용**
 
 **postman 사용해서 서버로 post 메시지 전송**
+
+<hr>
+
+## 2021.05.14
+
+**bcrypt 사용해 비밀번호 암호화**
+
+**AngularJS scope 간의 통신**
+
