@@ -1117,3 +1117,13 @@ ssh를 사용하는 방법과, 처음 프로젝트를 github에 올리는 것을
 
 **AngularJS scope 간의 통신**
 
+<hr>
+
+## 2021.05.15
+
+**<a href="./Book/ThePragmaticProgrammer/Chapter5.md">실용주의 프로그래머 5장 구부러지거나 부러지거나</a>**
+
+결합도를 줄여야 하는 이유와 결합도를 줄이는 방법에 대해 설명한다.
+
+**cookie-parser, jsonwebtoken 사용하기**
+
