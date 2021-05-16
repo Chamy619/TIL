@@ -1127,3 +1127,15 @@ ssh를 사용하는 방법과, 처음 프로젝트를 github에 올리는 것을
 
 **cookie-parser, jsonwebtoken 사용하기**
 
+<hr>
+
+## 2021.05.16
+
+**<a href="./Book/ThePragmaticProgrammer/Chapter6.md">실용주의 프로그래머 6장 코딩하는 동안 해야 할 일들</a>**
+
+리팩터링과 테스트, 의도적인 프로그래밍에 대해 설명했고, 나에게 큰 울림을 주는 내용들이었다.
+
+**Express**
+
+* auth 기능 추가
+* 로그아웃 기능 추가
