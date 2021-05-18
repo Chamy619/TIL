@@ -1155,3 +1155,34 @@ ssh를 사용하는 방법과, 처음 프로젝트를 github에 올리는 것을
 **npx**
 
 npx는 npm으로 설치해서 실행하지 않고, npm registry에 들어있는 내용을 다운로드 받지 않고, 해당 내용을 사용만 할 수 있게 해주는데, 항상 최신 버전을 사용할 수 있고, 디스크 공간을 절약할 수 있게 해준다.
+
+
+
+## 2021.05.18
+
+**react-router-dom**
+
+리액트에서 라우터 기능을 해주는 react router dom을 사용해 봤다. 일단 사용법은 너무 간단했다.
+
+```react
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+}
+
+function App() {
+    return (
+        <Router>
+            <div>
+            	<Switch>
+                    <Route exact path='/' component={Home} />
+                    <Route exact path='/login' component={Login} />
+                </Switch>
+            </div>
+        </Router>
+    );
+}
+```
+
+이렇게 사용하고, path에 지정해 둔 경로로 갈 경우 옆에 놓은 component에 넣은 컴포넌트가 렌더링 된다. 뭔가 스위치문을 사용해도 이렇게 할 수 있을 것 같은데 경로 지정해서 나오도록 하는 것은 좀 더 알아봐야해서, 코드를 읽어봐야 정확히 알 수 있을 것 같다.
