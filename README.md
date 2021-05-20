@@ -1201,3 +1201,36 @@ app.use(cors());
 사용법은 굉장히 간편한데, 이게 모든 요청에 대해 다 응답을 보내는 것 같아서 보안적으로는 취약할 것 같다는 생각이 든다. 그리고 react 에서 `http-proxy-middleware`를 사용해서 요청 URL을 바꿔보기도 했는데, CORS 문제가 해결되지 않아서 원인 분석이 필요하다.
 
 결국 프론트엔드에서 CORS 문제를 해결하지 못해서 백엔드에서 cors를 사용하게 되었고, 문제는 해결했는데 보안적 문제는 없는지 조사해봐야 한다.
+
+<hr>
+
+## 2021.05.20
+
+**concurrently 사용해서 backend, frontend 한 번에 실행하기**
+
+기존에 백엔드 부분인 express를 실행하기 위해서는 해당 디렉터리에서 `npm run backend` 를 입력해서 실행시키고, 클라이언트 부분인 react를 실행하기 위해서는 해당 디렉터리로 이동한 후에 `npm run start` 를 입력해서 실행시켰다. 
+
+이를 한 번의 명령어 입력으로 실행 시키는 패키지가 "concurrently" 이다.
+
+일단 npm을 사용해서 설치를 한다.
+
+```bash
+npm install concurrently --save
+```
+
+ 설치가 끝나면 "package.json" 파일을 열고 script 부분에 아래 명령어를 추가해주면 된다.
+
+```json
+{
+    ...
+    "script": {
+        "backend": "nodemon server/index.js",
+        "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\""
+    }
+}
+```
+
+`dev` 부분을 추가한 것인데, 이제 이를 실행하려면 `npm run dev` 라고 쉘에 입력하면 된다. 
+
+`dev` 부분을 조금 해석하자면, concurrently를 사용해 동시에 실행하겠다는 것을 알려주고, 첫 번째 인자로 `npm run backend` 를 넘기고, 두 번째 인자로 `npm run start --prefix client` 를넘겨서, 백엔드와 프론트엔드를 동시에 실행한다. "prefix" 를 사용해 해당 디렉터리의 스크립트를 실행한다.
+
