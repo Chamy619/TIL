@@ -1244,3 +1244,41 @@ npm install concurrently --save
 
 아 그리고 미들웨어에 대해 사실 그동안은 제대로 몰랐는데, 이번에 공부하면서 미들웨어라는 개념을 나는 다음 단계로 넘어가기 전에 실행되는 음.. 프록시 역할? 과 비슷하다고 느껴졌다. 그리고 실제로 그런 개념으로 사용하고 있는데, 이게 잘하는 것인지, 그리고 내가 잘 이해한 것인지 모르겠다.
 
+<hr>
+
+## 2021.05.22
+
+**<a href="./Book/ThePragmaticProgrammer/Chapter7.md">실용주의 프로그래머 7장 프로젝트 전에</a>**
+
+프로젝트 전에 수행되어야 할 요구사항 수립과 프로젝트 방향 설정에 대한 내용을 다룬다. 요구사항을 수집하지 말고 채굴하라는 말이 많은 깨달음을 줬다.
+
+
+
+**JS event.target과 event.currentTarget**
+
+`event.target` : 이벤트가 발생한 대상을 나타냄
+
+`event.currentTarget` : 이벤트를 발생시킨 대상을 나타냄
+
+
+
+```react
+buttonClick = (event) => {
+    console.log(event.target);
+    console.log(event.currentTarget);
+}
+
+<button onClick={buttonClick}>
+	<span>BUTTON</span>
+</button>
+```
+
+
+
+위처럼 설정하고 `<span>` 부분을 클릭하면
+
+* `event.target` : `<span>BUTTON</span>`
+* `event.currentTarget` : `<button><span>BUTTON</span></button>`
+
+결과는 위와 같다.
+
