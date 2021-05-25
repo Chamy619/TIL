@@ -1305,3 +1305,11 @@ buttonClick = (event) => {
 **<span style="color:red;">Set cookie가 동작하지 않는 이슈 발생</span>**
 
 일단 Set-Cookie 대신 localstorage에 액세스 토큰을 저장하는 방식으로 변경하였는데, 왜 set-cookie 가 작동하지 않는지에 대해서는 공부해야 할 필요가 있음.
+
+<hr>
+
+## 2021.05.25
+
+**react HOC**
+
+HOC은 Higher Order Component의 약자로, `HOCComponent(WarppedComponent)` 형태로 사용한다. 사용 목적은, 조건에 따라 다른 컴포넌트를 리턴하기 위해서 사용하고, 나는 사용자 권한 또는 로그인 여부에 따라 특정 컴포넌트를 보여줄지, 보여주지 않을지 결정하는 데 사용하려한다.
