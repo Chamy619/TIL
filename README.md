@@ -1327,3 +1327,14 @@ HOC은 Higher Order Component의 약자로, `HOCComponent(WarppedComponent)` 형
 **로그인 회원가입 인증 템플릿 완성**
 
 MERN 스택으로 로그인, 회원가입, 인증 부분을 처리하는 것을 완료했다. 간단한 기능인데도 알아야 할 것이 많았고, 아직도 공부할 것이 매우 많구나 라는 것을 느꼈다.
+
+<hr>
+
+## 2021.05.27
+
+**위키**
+
+- express - mongodb 연동
+- mongodb 모델 생성
+- <a href="https://github.com/Chamy619/Friend_Wiki/blob/feature/register/docs/register.md">회원가입 백엔드 기능 완성</a>
+
