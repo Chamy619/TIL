@@ -1479,3 +1479,10 @@ npx create-react-app . --template typescript
 
 **webpack 사용해 리액트 시작하기**
 
+---
+
+## 2021.06.05
+
+**미니 노션**
+
+구글 로그인 기능 구현
