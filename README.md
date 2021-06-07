@@ -1517,3 +1517,13 @@ npx create-react-app . --template typescript
 
 프로토타입은 <a href="[slate-js/prototype - CodeSandbox](https://codesandbox.io/s/8tbiz)">여기</a> 에서 확인할 수 있다.
 
+---
+
+## 2021.06.07
+
+### 미니 노션
+
+* 네이버 로그인 기능 추가
+* express api들 router로 분리
+
+자세한 정보는 <a href="https://chamy619.tistory.com/129">여기</a> 에서 확인할 수 있다.
