@@ -1622,3 +1622,32 @@ const [bullet] = [
 
 forwadref는 ref를 props로 받고, 그 ref에 자신의 엘리먼트를 주는 것이다. 그니까 부모 또는 다른 컴포넌트에게 자신의 엘리먼트를 조작할 수 있는 권한을 넘겨줄 때 사용한다.
 
+---
+
+## 2021.06.11
+
+**sytled-components**
+
+처음으로 styled-components를 사용해봤는데, 일단 첫 느낌은 너무 편하다는 점이었다. 따로 css 파일을 만들지 않아도 되는 것과, 한 파일에서 디자인과 기능적인 부분을 모두 다룰 수 있는 게 너무 좋았고, 리액트 특성상 컴포넌트 코드 내용이 그렇게 길어지지 않을 텐데, 그래서 같은 파일에 스타일적인 내용과 기능적인 내용을 모두 적어도 가독성이 전혀 떨어지지 않는 점이 리액트와 styled-components가 정말 찰떡이구나 라는 생각이 들었다. 
+
+오늘은 styled-components를 미니 노션에 적용해 보았는데, 지금까지는 정말 만족한다. 오늘 배운 내용 하나를 조금 정리하자면, 외부 컴포넌트를 styled-components를 사용해 스타일을 적용하고 싶을 때는 아래 처럼 이용하면 된다.
+
+```typescript
+import { Editor } from 'sltae-react';
+import style from 'styled-components'
+
+const StyledEditor = style(Editor)`
+	width: 25px;
+	height: 30px;
+	border: 1px solid #ddd;
+`;
+
+const MyEditor: React.FC = () => {
+    return <StyledEditor />;
+}
+```
+
+
+
+이렇게 작성하면, 외부의 Editor 컴포넌트를 다른 위치에서 스타일을 수정해 줄 수 있다. 물론 자신의 위치에서 props를 받아 스타일을 적용하는 것이 가장 좋지만, 외부 라이브러리 또는 패키지일 경우는 직접 해당 패키지를 수정해야 하고, 그러려면 해당 패키지에 styled-components를 적용하던가, 아니면 다른 css를 주입할 수 있는 방법을 적용해야 하기 때문에, 위의 방법을 사용하는 것이 더 편리하다고 생각한다.
+
