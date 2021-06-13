@@ -1660,3 +1660,39 @@ const MyEditor: React.FC = () => {
 에디터 페이지의 사이드 메뉴를 만들어 봤다. 일단 로그아웃 버튼과 사용자의 이름과 사진을 띄워주는 것 까지 진행 되었고, 하단 내용은 서버에서 파일의 데이터베이스 모델을 어떻게 정의할지에 결정하고, 구현 후에 화면에 보여줄 예정이다.
 
 내일은 일단 사이드 메뉴를 접는 기능을 추가하려 하고 있고, 리액트를 다루는 기술 책을 읽어가면서, 리액트 실력을 조금씩 늘려 갈 예정이다.
+
+---
+
+## 2021.06.13
+
+**미니 노션**
+
+사이드 메뉴 접었다 펴는 기능을 추가했다.
+
+
+
+**TypeSciprt에서 react-router-dom의 withRouter 사용시 주의사항**
+
+`props.history.push` 를 사용하려면 react router dom의 withRouter를 사용해서 컴포넌트를 반환해야 한다. 이 때 타입스크립트에서 props 인터페이스를 정의할 때, History 외의 다른 내용을 props 인터페이스에 정의하면 에러가 발생하고, 아래의 방법으로 해결할 수 있다.
+
+```typescript
+import { History } from 'history'
+import { withRouter, RouteComponentProps } from 'react-router-dom'
+
+interface Props {
+    history: History;
+    hover: boolean;
+}
+
+const userInfo: React.FC<Props & RouteComponentProps> = (props) => {
+    // ...
+}
+
+export default withRouter(userInfo);
+```
+
+
+
+`interface Props` 내부에 history만 있으면 RouteComponentProps를 따로 사용하지 않아도 되지만, 만약 hover나 다른 내용이 있을 경우 RouteComponentProps를 사용해야 한다.
+
+withRouter의 props 인터페이스에서 hover가 존재하지 않아 에러가 발생했고, 이를 위의 방법으로 피해갈 수 있다.
