@@ -1696,3 +1696,103 @@ export default withRouter(userInfo);
 `interface Props` 내부에 history만 있으면 RouteComponentProps를 따로 사용하지 않아도 되지만, 만약 hover나 다른 내용이 있을 경우 RouteComponentProps를 사용해야 한다.
 
 withRouter의 props 인터페이스에서 hover가 존재하지 않아 에러가 발생했고, 이를 위의 방법으로 피해갈 수 있다.
+
+---
+
+## 2021.06.14
+
+**<a href="./react/Experience/Portal.md">Portal</a>**
+
+리액트 트리는 변경하지 않고, DOM 트리에서 자식을 외부로 렌더링 하는 최고의 방법 중 하나는 Portal 이다. 공식 문서의 내용을 읽고 정리했고, Portal에 대해서는 이해했다는 생각이 든다.
+
+
+
+**Typescript에서 리액트 클래스형 컴포넌트 사용하기**
+
+Typescript를 사용해 리액트 클래스형 컴포넌트를 사용하려면, Props와 State 모두 interface를 정의하고 사용해야 한다.
+
+```typescript
+import { Component } from 'react'
+
+interface Props {
+    name: string;
+    age: number;
+};
+
+interface State {
+    count: number
+};
+
+class Person extends Component<Props, State> {
+    state = {
+        count: 1
+    }
+    
+    render() {
+        //...
+    }
+}
+```
+
+위처럼 사용해 줘야, setState를 할 때 ReadOnly 오류를 방지할 수 있다.
+
+또한 State 선언할 때, constructor 내부에서 선언하지 않고, 위처럼 바로 state로 선언해줘도 된다.
+
+
+
+**PropTypes 종류**
+
+* array
+* arrayOf(다른 PropTypes)
+* bool
+* func
+* number
+* object
+* string
+* symbol
+* node: 렌더링 할 수 있는 모든 것(숫자, 문자열, JSX 코드)
+* instanceOf(클래스)
+* oneOf(배열)
+* oneOfType([React.PropTypes.string, PropTypes.number])
+* objectOf(React.PropTypes.number)
+* shape({name: PropTypes.string, num: PropTypes.number})
+* any
+
+
+
+아 그리고 setState는 state값을 바로 변경시키지는 않음.
+
+```tsx
+<button
+    onClick={() => {
+        this.setState({number: this.state.number + 1});
+        this.setState({number: this.state.number + 1});
+    }}
+>+1</button>
+```
+
+위처럼 코드를 작성하고, 버튼을 클릭했을 때, state.number의 값이 2씩 증가하지 않는다. 
+
+이를 바로 적용하기 위해서는 아래처럼 setState에 매개변수를 줘야 한다.
+
+```tsx
+<button
+    onClick={() => {
+        this.setState(prevState => ({prevState.number + 1}));
+        this.setState(prevState => ({prevState.number + 1}));
+    }}
+>+1</button>
+```
+
+setState의 콜백함수는 사실 매개변수를 하나 더 받을 수 있는데, 이는 props를 받고, 만약 props를 사용하지 않는다면 생략 가능하다.
+
+
+
+setState 직후 다른 작업을 하기 위해서는 아래처럼 setState를 사용하면 된다.
+
+```tsx
+setState({number: number + 1}, () => console.log('방금 setState를 호출했습니다.'));
+```
+
+setState의 첫 번째 매개변수로 state 값을 변경시키고, 이후 파라미터로 콜백함수를 넣어 setState 직후의 작업을 추가할 수 있다.
+
