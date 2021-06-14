@@ -16,7 +16,7 @@
 
 모든 컴포넌트는 독립적으로 존재할 수도 있고, 부모 또는 자식 컴포넌트를 가지고 있을 수도 있다. 여기서 파란색은 부모, 주황색은 파란색 컴포넌트의 자식 컴포넌트가 된다.
 
-![](C:\Users\ChaeHoon\AppData\Roaming\Typora\typora-user-images\image-20210614143116030.png)
+![](../images/react-tree.png)
 
 
 
@@ -24,7 +24,7 @@
 
 
 
-![](C:\Users\ChaeHoon\AppData\Roaming\Typora\typora-user-images\image-20210614143139898.png)
+![](../images/dom-tree.png)
 
 당연하게도 위의 구조와 같은 DOM 구조가 생길 것이다. 
 
@@ -40,13 +40,13 @@
 
 이번엔 포탈을 사용한 컴포넌트 구조를 확인해보자.  일단 리액트 트리에서는 변하지 않는다.
 
-![](C:\Users\ChaeHoon\AppData\Roaming\Typora\typora-user-images\image-20210614143116030.png)
+![](../images/react-tree.png)
 
 
 
 DOM 트리에서는 어떻게 보여질까?
 
-![image-20210614143406733](C:\Users\ChaeHoon\AppData\Roaming\Typora\typora-user-images\image-20210614143406733.png)
+![image-20210614143406733](../images/portal-dom-tree.png)
 
 주황색 자식 컴포넌트 하나가 밖으로 빠져나갔다. 자식 컴포넌트가 저렇게 외부에 위치하게 할 수도 있고, 심지어는 부모 컴포넌트의 부모 위치에도 놓을 수 있다.
 
@@ -81,7 +81,7 @@ function App() {
 
 CRA로 생성한 앱의 경우 일반적으로 App 컴포넌트가 root div 내에 렌더링 됩니다. 하지만 위처럼 포탈을 생성할 경우 아래 사진처럼 root div 외부에 렌더링 할 수 있다.
 
-![image-20210614144607332](C:\Users\ChaeHoon\AppData\Roaming\Typora\typora-user-images\image-20210614144607332.png)
+![image-20210614144607332](../images/portal-result-1.png)
 
 
 
@@ -132,7 +132,7 @@ function App() {
 
 결과는 아래 사진과 같다.
 
-![image-20210614145918635](C:\Users\ChaeHoon\AppData\Roaming\Typora\typora-user-images\image-20210614145918635.png)
+![image-20210614145918635](../images/portal-result-1.png)
 
 button이 root div 외부에 렌더링 된 것을 확인할 수 있다. DOM 트리적으로 보면, ChildComponent는 ParentComponent의 자식이 아니다. 하지만 리액트 트리에서는 여전히 ParentComponent의 자식이므로,  버튼을 클릭하면 ParentComponent의 count가 1씩 증가하는 것을 확인할 수 있다.
 
