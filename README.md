@@ -1809,3 +1809,94 @@ setState의 첫 번째 매개변수로 state 값을 변경시키고, 이후 파�
 **리액트를 다루는 기술 4장. 이벤트 핸들링**
 
 기본적인 내용을 이번에 다루었고, 리액트를 사용해 DOM에 이벤트를 등록하는 법을 배웠다. 
+
+---
+
+## 2021.06.16
+
+**리액트를 다루는 기술 5장. ref: DOM에 이름 달기**
+
+자바스크립트를 사용해 DOM 객체에 접근하기 위해서는 `<div id="root">` 와 같이 DOM 요소에 id를 붙여주고, `document.getElementById('root')` 를 사용해 접근했다. 이 때 id는 항상 유일한 이름을 가져야 한다.
+
+리액트에서도 DOM에 접근해야 할 때가 있다. input 태그에 포커스를 주거나, 스크롤을 해야하거나 canvas에 그림을 그릴 때, DOM 객체에 접근해야 한다. 리액트에서도 위와 같이 id를 사용하는 방법을 쓸 수 있으나 그것보다 더 우아한 방법이 존재한다. 바로 `ref` 를 사용한 접근이다. ref는 컴포넌트 내에서만 동작하기 때문에, id보다 유일한 이름을 주기 쉽다. 
+
+내 뇌피셜로는 ref는 VirualDOM 에서 ID 역할을 하고, Real DOM 에는 전달되지 않는 것이라는 생각이 들었고, 이에 대해서는 조금 더 알아봐야 할 것 같다.
+
+
+
+어쨌든, 지금 주로 사용하는 함수형 컴포넌트에서는 useRef를 사용해서 ref를 사용하게 되는데, 오늘은 클래스형 컴포넌트에서 사용법을 다뤄봤다.
+
+```jsx
+<input ref={ref => {this.input = ref}} />
+```
+
+와 같이 DOM 요소 내에 ref를 콜백함수를 사용해 등록할 수 있다. 위의 경우 this.input 을 사용해 input 요소에 직접 접근할 수 있고, 위의 input 요소에 포커스를 주려면 `this.input.focus()` 와 같이 사용하면 된다.
+
+
+
+또 한가지 방법은 creactRef 를 사용하는 방법인데 아래처럼 선언하고 사용할 수 있다.
+
+```jsx
+class Sample extends React.Component {
+    input = React.createRef();
+	
+	// ...
+
+	render() {
+        <input ref={this.input} />
+    }
+}
+```
+
+createRef를 담을 변수를 하나 만들고, 이를 DOM 요소의 ref에 넣어주면 된다. 여기서 input 요소에 포커스를 주려면 `this.input.current.focus()` 와 같이 사용하면 된다. 주의할 점은 current를 한 번 써 주어야 한다는 것인데, 처음에 input 만 했을 때는 어느 DOM 요소에 ref가 달릴지 모르므로, current를 사용해주어야 한다.
+
+
+
+추가로 Typescript에서 위의 방법으로 ref를 사용하려면 이렇게 사용하면 된다.
+
+```tsx
+<input ref={(ref: HTMLInputElement) => {this.input = ref}} />
+```
+
+위의 방법으로 선언하고 사용할 때는 아래의 방법으로 사용하면 된다.
+
+```tsx
+class Sample extends React.Component {
+    input: (HTMLInputElement | null) = null;
+    
+    this.input?.focus();
+}
+```
+
+input 뒤에 ? 가 있는 이유는 input이 null 일 수도 있기 때문에, null이 아닐경우 focus를 진행하는 의미이다.
+
+
+
+위의 방법 중 createRef 를 사용하는 방법을 typescript 에서 사용하려면 아래 방법과 같다.
+
+```tsx
+class Sample extends React.Component {
+    input: (HTMLInputElement | null) = null;
+    
+    this.input.current?.focus();
+    
+    render() {
+        return <input ref={this.input}
+    }
+}
+```
+
+역시 current를 사용해 주어야 하고, 여기서는 current에 ?가 들어간다. input은 우리가 createRef를 했기 때문에 이미 값이 존재하는 상태이기 때문에 current가 null일 가능성이 있기 때문에 여기에 ?를 달아주어야 하는 것이 맞다.
+
+
+
+**리액트를 다루는 기술 6장. 컴포넌트 반복**
+
+이 장에서는 자바스크립트의 배열 api인 map에 대해 다루었다. 근데 내가 이번 장에서 배운 점은, onClick 이벤트나 onDoubleClick 이벤트는 기본적으로 `() => void` 형태이기 때문에 `onClick={(값) => {행동}}` 의 형태로 사용할 수가 없다. 만약 이 형태로 사용하고 싶을 경우 아래처럼 사용하면 된다.
+
+```tsx
+<li onDoubleClick={() => {onRemove(names.id)}} />
+```
+
+() => void 형태로 한번 감싸고 그 안에서 우리가 사용하고 싶은 형태를 사용해주면 된다.
+
