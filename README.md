@@ -1909,3 +1909,28 @@ class Sample extends React.Component {
 오늘은 리덕스를 만들어 보는 시간을 가졌는데, 생각보다 코드 양이 많지 않은 것에 놀랐고, 엄청 간단한 컨셉이라는 것에 또 놀랐다. 오늘 퇴근할 때 까지 리덕스랑 씨름을 했는데, 이 간단한 걸 어렵게 쓰고 있으니까 그랬던 것 같다.
 
 클로저에 대해서도 중간에 설명을 들었는데, 나는 클로저는 알지 라고 자만했었는데, 클로저의 한 가지 측면만 알고 있었다. 클로저를 사용했을 때, 얻을 수 있는 효과로 함수 호출 지연, 이름을 지어서 가독성 향상이 있는데, 그저 내부 값을 외부에서 접근 하지 못하도록 하기 위한 것이라고만 알고있었다. 클로저에 대한 시선이 조금 더 넓어졌고, 자주 사용해야겠다는 생각이 들었다.
+
+---
+
+## 2021.06.18
+
+**리액트를 다루는 기술 7장 8장**
+
+7장에서는 클래스 형 컴포넌트에서 사용하는 생명주기 메서드를 다뤄보았고, 이를 사용해 에러 페이지를 만들 수 있다는 것을 알게 됐다. 
+
+8장에서 훅에 대해 배우게 되었고, 타입스크립트에서 커스텀 제네릭 훅을 만드는 방법은 아래와 같다.
+
+```tsx
+// Arrow Function
+const useInfo = <T>(initialState: T): [T, (e: React.ChangeEvent<HTMLInputElement) => void] => {
+	// ...
+	return [state, onChange];
+}
+          
+// Normal Function
+function useInfo<T>(initialState: T): [T, (e: React.ChangeEvent<HTMLInputElement>) => void] {
+	// ...
+    return [state, onChange]
+}
+```
+
