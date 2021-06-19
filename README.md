@@ -1934,3 +1934,39 @@ function useInfo<T>(initialState: T): [T, (e: React.ChangeEvent<HTMLInputElement
 }
 ```
 
+---
+
+## 2021.06.19
+
+**리액트를 다루는 기술 9장**
+
+9장에서는 컴포넌트를 스타일링 하는 방법에 대해 보게 되었다. 처음으로 일반적인 css 파일을 만들어 사용하는 것이 있는데, 작은 프로젝트의 경우, 클래스 이름이 중첩될 일이 별로 없기 때문에 이렇게 진행하는 것이 오히려 더 편할 것 같다는 생각이 들었다.
+
+그리고 Sass인데 Sass는 Syntactically Awesome Style Sheets의 약자이다. 기존 css 문법과 거의 동일한데, 재사용할 수 있도록 지원을 해주고, 변수를 지정할 수 있어서 가독성도 높다. 사용법은 아래와 같다.
+
+```scss
+$red: #fa5252;
+$orange: #fd7e14;
+$yellow: #fcc419;
+$green: #40c057;
+$blue: #339af0;
+$indigo: #5c7cfa;
+$violet: #7950f2;
+
+@mixin square($size) {
+    $calculated: 32px * $size;
+    width: $calculated;
+    height: $calculated;
+}
+
+.box {
+    @include square(1);
+    background: $red;
+}
+```
+
+$ 기호를 사용해 변수를 만들 수 있고, mixin 을 만든 후 `@include` 를 사용해서 이를 사용할 수 있다. 간편하고, 가독성도 좋다고 느껴졌는데, CRA 로 만든 프로젝트에서 사용하려면 `4.14.1` 버전을 사용해야 한다.
+
+
+
+세 번째로는 요즘 굉장히 핫한 styled-components 를 사용해봤다. 기존 scss 또는 css와 문법적으로는 다를게 없다. 내가 생각하는 styled-components의 가장 큰 장점은 별도의 스타일 파일을 만들지 않아도 된다는 점이다. UI의 한 부분을 컴포넌트로 만드는 리액트와 굉장히 궁합이 잘맞는 느낌이고, 전역적으로 스타일을 설정할 수 있는 부분과, 별도의 클래스 명을 주지 않아도 되고, props를 사용해 스타일링을 진행할 수 있는 점이 굉장히 매력적으로 다가왔다. styled-components를 사용할 때, vscode-styled-components 익스텐션을 사용하려면 꼭 `import styled from 'styled-component'` 라고 선언해야 한다. styled 대신 style이나 다른 이름일 경우 익스텐션이 제대로 동작하지 않는다.
