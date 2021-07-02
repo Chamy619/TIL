@@ -2116,3 +2116,85 @@ logger에서 함수형 액션을 기록하기 원한다면, 또는 모든 리덕
 
 어제 봤을 때는 그렇게 어렵지 않다는 생각이었는데, 확실히 타입스크립트를 같이 사용해보니, 진입장벽이 조금 높았다. 일단 redux-saga의 이펙트 중 하나인 call을 사용할 때, 타입을 어떻게 주어야 하는지에 대해 많이 고민했었고, 결국 api를 받아오는 부분에서, 비동기처리를 미리 한 후, 값을 넘기는 방법을 오늘은 사용했다. 근데 이렇게 하면 비동기 처리를 위해 리덕스 미들웨어를 사용하는 장점이 없어지는 것이 되기 때문에, Promise 타입을 주어야 하는지, 아니면 어떤 것을 주어야 하는지 아직 감이 안잡힌다. 일단 any를 줘도 안됐고, 특정 타입을 주어야 하는데, 이를 어떻게 해야 될 지 모르겠다.
 
+---
+
+## 2021.07.02
+
+**리액트를 사용하는 기술 19장**
+
+코드 스플리팅 기술에 대해 알아보았다. SPA의 경우, 사용하지 않는 컴포넌트들도 처음에 모두 가져오기 때문에, 초기 페이지가 나타나는데 시간이 SSR 보다 오래 걸린다는 단점이 있다. 이를 해결하기 위한 방법 중 하나가 코드 스플리팅인데, import 를 동적으로 한다는 것으로 보면 될 것 같다.
+
+```javascript
+import('./SplitMe').then(result => result.default());
+```
+
+자바스크립트에서는 위의 방식으로 진행할 수 있다.
+
+
+
+리액트에서는 크게 두 가지 방법이 있는데, 클래스형 컴포넌트를 사용해서, state에 로드하는 것과 `React.laze` 와 `Suspense` 를 사용하는 것이다. 일단 클래스형 컴포넌트의 사용법은 아래와 같다.
+
+```react
+class App extends React.Component {
+    state = {
+        SplitMe: null
+    }
+
+	handleClick = async () => {
+        const loadedModule = await import('./SplitMe');
+        this.setState({
+            SpliteMe: loadedModule
+        });
+    }
+    
+    render() {
+        const {SplitMe} = this.state;
+        return ({SplitMe && <SplitMe />});
+    }
+}
+```
+
+이 방법은 조금 귀찮은 작업이 들어간다. state를 추가해줘야 하고, 함수형 컴포넌트에서는 사용할 수 없다. 그리고 타입스크립트를 사용할 때는 state를 다음과 같이 정의해줘야 한다.
+
+```typescript
+interface IState {
+    SplitMe: null | React.ComponentType;
+}
+```
+
+
+
+두 번째 방법은 위의 방법과 거의 비슷하지만 조금 더 쉽다.
+
+```react
+const SplitMe = React.lazy(() => import('./SplitMe'));
+
+function App() {
+    return (
+    	<Suspense fallback={<div>Loading...</div>}>
+        	<SplitMe />
+        </Suspense>
+    );
+}
+```
+
+`React.lazy` 와 `Suspense` 를 사용하면 로딩중에 보여줄 UI도 설정할 수 있다.
+
+
+
+추가로 하나를 더 설명하자면, loadable component 라이브러리를 사용하는 것이다. loadable component 는 위의 두 방법에 추가적으로 preloading 과 서버 사이드 렌더링을 지원한다.
+
+```react
+import loadable from '@loadable/component';
+const SplitMe = loadable(() => import('./SplitMe'), {fallback: <div>Loading...</div>});
+
+function App() {
+    const [visible, setVisible] = useState(false);
+    // ...
+    return (
+    	{visible && <SplitMe />}
+    );
+}
+```
+
+방법이 `React.lazy ` 를 사용하는 것과 거의 똑같다. 여기서 프리 로딩을 사용하려면, `SplitMe.preload()` 를 호출하면 된다.
