@@ -1,0 +1,2 @@
+(this.__LOADABLE_LOADED_CHUNKS__=this.__LOADABLE_LOADED_CHUNKS__||[]).push([[2],{45:function(t,_,n){"use strict";n.r(_);n(83);var e=n(7);var c=function(){return Object(e.jsx)("div",{className:"Red",children:"Red"})};_.default=function(){return Object(e.jsx)(c,{})}},83:function(t,_,n){}}]);
+//# sourceMappingURL=pages-RedPage.f39a974f.chunk.js.map

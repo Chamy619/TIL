@@ -1,0 +1,144 @@
+{
+  "errors": [],
+  "warnings": [],
+  "hash": "ff47c2fcffc0a79bf333",
+  "publicPath": "/",
+  "outputPath": "D:\\gitHub\\react_practice\\build",
+  "assetsByChunkName": {
+    "main": [
+      "static/css/main.c263f42f.chunk.css",
+      "static/js/main.ba0cd857.chunk.js",
+      "static/js/main.ba0cd857.chunk.js.map"
+    ],
+    "pages-BluePage": [
+      "static/css/pages-BluePage.1fd97def.chunk.css",
+      "static/js/pages-BluePage.597066d2.chunk.js",
+      "static/js/pages-BluePage.597066d2.chunk.js.map"
+    ],
+    "pages-RedPage": [
+      "static/css/pages-RedPage.2eaed7b7.chunk.css",
+      "static/js/pages-RedPage.f39a974f.chunk.js",
+      "static/js/pages-RedPage.f39a974f.chunk.js.map"
+    ],
+    "pages-UsersPage": [
+      "static/js/pages-UsersPage.972c4f2c.chunk.js",
+      "static/js/pages-UsersPage.972c4f2c.chunk.js.map"
+    ],
+    "runtime-main": [
+      "static/js/runtime-main.8897292e.js",
+      "static/js/runtime-main.8897292e.js.map"
+    ]
+  },
+  "assets": [],
+  "filteredAssets": 21,
+  "namedChunkGroups": {
+    "main": {
+      "chunks": [
+        4,
+        5,
+        0
+      ],
+      "assets": [
+        "static/js/runtime-main.8897292e.js",
+        "static/js/runtime-main.8897292e.js.map",
+        "static/js/5.6ef1ceb9.chunk.js",
+        "static/js/5.6ef1ceb9.chunk.js.map",
+        "static/css/main.c263f42f.chunk.css",
+        "static/js/main.ba0cd857.chunk.js",
+        "static/js/main.ba0cd857.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-RedPage": {
+      "chunks": [
+        2
+      ],
+      "assets": [
+        "static/css/pages-RedPage.2eaed7b7.chunk.css",
+        "static/js/pages-RedPage.f39a974f.chunk.js",
+        "static/js/pages-RedPage.f39a974f.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-BluePage": {
+      "chunks": [
+        1
+      ],
+      "assets": [
+        "static/css/pages-BluePage.1fd97def.chunk.css",
+        "static/js/pages-BluePage.597066d2.chunk.js",
+        "static/js/pages-BluePage.597066d2.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-UsersPage": {
+      "chunks": [
+        3
+      ],
+      "assets": [
+        "static/js/pages-UsersPage.972c4f2c.chunk.js",
+        "static/js/pages-UsersPage.972c4f2c.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "generator": "loadable-components",
+  "chunks": [
+    {
+      "id": 0,
+      "files": [
+        "static/css/main.c263f42f.chunk.css",
+        "static/js/main.ba0cd857.chunk.js",
+        "static/js/main.ba0cd857.chunk.js.map"
+      ]
+    },
+    {
+      "id": 1,
+      "files": [
+        "static/css/pages-BluePage.1fd97def.chunk.css",
+        "static/js/pages-BluePage.597066d2.chunk.js",
+        "static/js/pages-BluePage.597066d2.chunk.js.map"
+      ]
+    },
+    {
+      "id": 2,
+      "files": [
+        "static/css/pages-RedPage.2eaed7b7.chunk.css",
+        "static/js/pages-RedPage.f39a974f.chunk.js",
+        "static/js/pages-RedPage.f39a974f.chunk.js.map"
+      ]
+    },
+    {
+      "id": 3,
+      "files": [
+        "static/js/pages-UsersPage.972c4f2c.chunk.js",
+        "static/js/pages-UsersPage.972c4f2c.chunk.js.map"
+      ]
+    },
+    {
+      "id": 4,
+      "files": [
+        "static/js/runtime-main.8897292e.js",
+        "static/js/runtime-main.8897292e.js.map"
+      ]
+    },
+    {
+      "id": 5,
+      "files": [
+        "static/js/5.6ef1ceb9.chunk.js",
+        "static/js/5.6ef1ceb9.chunk.js.map"
+      ]
+    },
+    {
+      "id": 6,
+      "files": [
+        "static/js/6.59cc4209.chunk.js",
+        "static/js/6.59cc4209.chunk.js.map"
+      ]
+    }
+  ]
+}
