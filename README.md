@@ -2375,3 +2375,41 @@ MariaDB가 성능 최적화가 잘 되어 있다. 그리고 MySQL의 엔터프�
 **Friend Wiki 백엔드 테스트 환경 구성**
 
 jest 와 supertest 를 사용해서 테스팅 환경을 구축했다. 이제 테스팅 코드를 먼저 작성하고, 이후 코드를 작성하는 습관을 만들어보도록 할 계획이다.
+
+---
+
+## 2021.07.18
+
+**dotenv 사용하기**
+
+Node JS 를 사용하다보면 `process.env.PORT` 와 같이 특정 값에 접근하는 것들을 자주 볼 수 있다. 보통 포트 번호 또는 데이터베이스 URI, 클라이언트 시크릿 값들을 저렇게 숨겨놓고 사용한다.
+
+사용법은 간단하다. 일단 dotenv 패키지를 설치한다.
+
+```bash
+yarn add -D dotenv
+```
+
+
+
+이후 프로젝트의 루트 디렉터리에 `.env` 파일을 만들고, 해당 파일에 자신이 사용하려는 내용을 작성한다.
+
+```
+PORT=4000
+MONGO_URI=mongo.com
+```
+
+
+
+이제 이 값을 사용하려는 위치에서 아래와 같이 사용하면 된다.
+
+```javascript
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+app.listen(process.env.PORT);
+```
+
+`dotenv.config()` 를 통해, 위에 작성한 파일의 내용을 가져오고, `process.env` 를 통해 값에 접근할 수 있다.
+
