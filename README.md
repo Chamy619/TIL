@@ -2413,3 +2413,20 @@ app.listen(process.env.PORT);
 
 `dotenv.config()` 를 통해, 위에 작성한 파일의 내용을 가져오고, `process.env` 를 통해 값에 접근할 수 있다.
 
+---
+
+## 2021.07.19
+
+**Friend Wiki - server: 회원가입 api**
+
+회원가입 api 를 만들어봤다. 테스트 케이스도 추가했고, 회원가입 테스트 시 실제 데이터베이스에 회원이 추가되는데, 이를 테스트 코드에서 즉시 삭제하도록 설정해뒀다.
+
+오늘 하면서 배운점은, body parser 를 사용할 때, 라우터 보다 먼저 사용해줘야 POST 의 body 를 제대로 읽을 수 있다는 점이다.
+
+```
+POST /api/auth/register
+	email: string
+	username: string
+	password: string
+```
+
