@@ -2430,3 +2430,56 @@ POST /api/auth/register
 	password: string
 ```
 
+---
+
+## 2021.07.20
+
+### Friend Wiki -server: 로그인, 로그아웃, 로그인 체크 api
+
+#### 로그인
+
+```
+POST /api/auth/login
+	email: string
+	username: string
+	password: string
+```
+
+```
+{
+	_id: string,
+	email: string,
+	username: string,
+	__v: number
+}
+```
+
+위의 요청을 보내면 아래의 응답을 얻을 수 있다. 응답을 보낼 때, 토큰을 발행한 뒤, 쿠키에 넣는다.
+
+
+
+#### 로그아웃
+
+```
+POST /api/auth/logout
+```
+
+로그아웃 시 별도의 내용을 전송하지는 않는다.
+
+
+
+#### 로그인 체크
+
+```
+GET /api/auth/check
+```
+
+```
+{
+	_id: string,
+	email: string,
+	username: string
+}
+```
+
+쿠키 값으로 로그인 체크를 한다. 만약 로그인 되어있는 경우 로그인 계정의 id, email, 사용자 이름을 응답으로 보내준다. 만약 로그인 되어 있지 않다면 401 상태를 전송한다.
