@@ -46,7 +46,7 @@ var add = function sum(a, b) {
 
 위의 예제에서 만약 두 수를 더할 때 `add` 와 `sum` 중 어떤 것을 사용해야할까? 나는 처음에 둘 다 사용해도 될 줄 알았다. 하지만 `sum(1, 3)` 을 호출하면 아래 사진처럼 에러가 발생한다.
 
-![image-20210731152843701](C:\Users\양채훈\AppData\Roaming\Typora\typora-user-images\image-20210731152843701.png)
+![JS_function_add](../images/JS_function_add.png)
 
 오른쪽에 `sum` 이라는 이름으로 선언된 함수는 외부에서 `sum` 으로 접근이 불가능하다. 그럼 여기서 생기는 의문점은 "이름을 쓸 필요가 없는건가?" 이다. 기명 함수 표현식을 사용할 때는 내부에서 재귀적으로 자기 자신을 호출할 때다. 사실 외부에서만 `sum` 사용이 불가능하고, `sum` 함수 내부에서는 `sum` 으로 접근이 가능하다.
 
