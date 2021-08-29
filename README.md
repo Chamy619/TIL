@@ -2721,3 +2721,51 @@ server {
 **친구위키 - 이름으로 중복확인**
 
 겹치는 이름이 있을 경우 가입하지 못하도록 제한함. 본인 인증 수단이 정말 절실히 필요함이 느껴짐
+
+---
+
+## 2021.08.29
+
+**친구위키 - 서버 코드 리팩토링**
+
+기존에 이메일로 중복확인하고, 이름으로 중복하는 코드가 두 번 존재해서 exists 는 이메일 중복확인 결과, existsUsername 은 이름 중복확인 결과를 담는 변수로 사용하고 있었는데, 둘 모두의 결과를 exists 로 담도록 리팩토링했다.
+
+기존코드
+
+```javascript
+const exists = await User.findByEmail(email);
+if (exists) {
+  ctx.status = 409;
+  return;
+}
+
+const existsUsername = await User.findByUsername(username);
+if (existsUsername) {
+  ctx.status = 409;
+  return;
+}
+```
+
+
+
+리팩토링 후 코드
+
+```javascript
+const exists = (await User.findByEmail(email)) || (await User.findByUsername(username));
+if (exists) {
+  ctx.status = 409;
+  return;
+}
+```
+
+
+
+이메일에서 한 번 걸러지면 이름 중복확인을 진행하지 않고, 이메일에서 중복확인에 걸리지 않았을 때 이름 중복확인을 하게 된다. 이후 exists 값이 존재하면 회원가입을 진행하지 않고 바로 클라이언트에게 409 응답을 보내도록 했다. 
+
+동일한 역할을 하는 코드가 두 부분에 존재해서 이를 하나로 합치는 작업을 진행했다.
+
+
+
+**인사이드 자바스크립트 8장**
+
+jQuery 분석에 대해 읽는 중이다. 아이디 셀렉터의 동작 방식을 보게 되었고 jQuery 코드를 보면 자바스크립트의 프로토타입을 정말 잘 활용하고 있다는 느낌이 든다. 아직 나는 프로토타입을 사용한 코드를 작성한 경험이 많지 않은데 자바스크립트의 실력을 결정 짓는 중요한 요소 중 하나가 프로토타입이라는 생각이 든다. 프로토타입을 사용해 유지보수하기 쉬운 코드를 작성하기 위해 고민해봐야겠다.
